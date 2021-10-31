@@ -3,14 +3,15 @@ import org.junit.Assert;
 import org.junit.Test;
 
 public class testHadoop {
-
+  
   @Test
   public void automationTask() throws Exception {
-    String url = "hdfs://192.168.88.241";
+    String url = "hdfs://192.168.88.240";
     String hdfsReadPath = "/test/airlines.dat";
-    String hdfsWritePath = url + "/user/avro";
-    String localPath = "src/main/resources";
+    String localPath = "src/main/resources/";
     String avroFileName = "airlines.avro";
+
+    Hdfs.writeFileToHdfs(url + "/test", "airlines.dat", localPath + "airlines.dat");
 
     String airlinesCsv = Hdfs.readFileToString(url, hdfsReadPath);
     Assert.assertTrue(airlinesCsv.contains("Svyaz Rossiya"));
@@ -21,8 +22,6 @@ public class testHadoop {
 
     Avro.writeListToAvroFile(airlinesList, localPath, avroFileName);
 
-    String avroOut = Hdfs.readFileToString(localPath, avroFileName);
-
-    Hdfs.writeFileToHdfs(hdfsWritePath, avroFileName, avroOut);
+    Hdfs.writeFileToHdfs(url + "/avro", avroFileName, localPath + avroFileName);
   }
 }
