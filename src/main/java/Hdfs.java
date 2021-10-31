@@ -14,9 +14,9 @@ import org.apache.hadoop.fs.Path;
 
 public class Hdfs {
 
-  public static void writeFileToHdfs(String ip, String fileName, String readFile)
+  public static void writeFileToHdfs(String writeTo, String writeFileName, String readFile)
       throws IOException {
-    String uri = ip + "/" + fileName;
+    String uri = writeTo + "/" + writeFileName;
     Configuration conf = new Configuration();
     FileSystem fs = FileSystem.get(URI.create(uri), conf);
 
