@@ -2,7 +2,7 @@ import java.util.List;
 import org.junit.Assert;
 import org.junit.Test;
 
-public class testHadoop {
+public class TestHadoop {
 
   @Test
   public void automationTask() throws Exception {
@@ -14,8 +14,9 @@ public class testHadoop {
 
     String airlinesCsv = Hdfs.readFileToString(url, "test/airlines.dat");
     Assert.assertTrue(airlinesCsv.contains("Svyaz Rossiya"));
-
     List<Airline> airlinesList = (List<Airline>) Csv.csvToList(Airline.class, airlinesCsv);
+
+
     Assert.assertEquals(6162, airlinesList.size());
     Assert.assertEquals("Svyaz Rossiya", airlinesList.get(6161).getName());
 

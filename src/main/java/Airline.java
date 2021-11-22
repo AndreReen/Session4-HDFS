@@ -5,20 +5,20 @@ import lombok.Data;
 public class Airline {
 
   @CsvBindByPosition(position = 0)
-  private int ID;
+  private int id;
   @CsvBindByPosition(position = 1)
-  private String Name;
+  private String name;
   @CsvBindByPosition(position = 2)
-  private String Alias;
+  private String alias;
   @CsvBindByPosition(position = 3)
-  private String IATA;
+  private String iata;
   @CsvBindByPosition(position = 4)
-  private String ICAO;
+  private String icao;
   @CsvBindByPosition(position = 5)
-  private String Callsign;
+  private String callsign;
   @CsvBindByPosition(position = 6)
-  private String Country;
+  private String country;
   @CsvBindByPosition(position = 7)
-  private String Active;
+  private String active;
 
 }
